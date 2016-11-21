@@ -51,11 +51,19 @@ namespace IdleMaster
         {
             Settings.Default.OnlyOneGameIdle = false;
             Settings.Default.OneThenMany = true;
+            Settings.Default.ManyThenMany = false;
+        }
+        else if (radManyThenMany.Checked)
+        {
+                Settings.Default.OnlyOneGameIdle = false;
+                Settings.Default.OneThenMany = false;
+                Settings.Default.ManyThenMany = true;
         }
         else
         {
             Settings.Default.OnlyOneGameIdle = radOneGameOnly.Checked && !radManyThenOne.Checked;
             Settings.Default.OneThenMany = false;
+            Settings.Default.ManyThenMany = false;
         }        
         Settings.Default.minToTray = chkMinToTray.Checked;
         Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
@@ -133,6 +141,10 @@ namespace IdleMaster
         if (Settings.Default.OneThenMany)
         {
             radOneThenMany.Checked = true;
+        }
+        else if (Settings.Default.ManyThenMany)
+        {
+                radManyThenMany.Checked = true;
         }
         else
         {

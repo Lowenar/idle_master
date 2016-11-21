@@ -219,13 +219,28 @@ namespace IdleMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public bool OneThenMany {
             get {
                 return ((bool)(this["OneThenMany"]));
             }
             set {
                 this["OneThenMany"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ManyThenMany
+        {
+            get
+            {
+                return ((bool)(this["ManyThenMany"]));
+            }
+            set
+            {
+                this["ManyThenMany"] = value;
             }
         }
     }
