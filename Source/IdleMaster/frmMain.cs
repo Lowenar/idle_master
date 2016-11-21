@@ -105,13 +105,16 @@ namespace IdleMaster
 
         public void UpdateIdleProcesses()
         {
-            foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge)))
+            if (Settings.Default.ManyThenMany)
             {
-                if (Settings.Default.ManyThenMany)
+                foreach (var badge in CanIdleBadges)
                 {
                     badge.Idle();
                 }
-                else
+            }
+            else
+            {
+                foreach (var badge in CanIdleBadges.Where(b => !Equals(b, CurrentBadge)))
                 {
                 if (badge.HoursPlayed >= 2 && badge.InIdle)
                     badge.StopIdle();
